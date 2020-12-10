@@ -1,70 +1,18 @@
-class App extends React.Component {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuto 1 - React</title>
+</head>
+<body>
+    <div id="app"></div>
 
-    state = {
-        outflow: "",
-        budget: []
-    }
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
-    handleChangeOutFlow = (event) => {
-        console.log(event.target.value);
-
-        this.setState({
-            outflow: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        
-        const tmp = this.state.budget.concat(this.state.outflow);
-
-        // INTERDIT
-        // this.state.budget.push()
-        // this.state.budget = 
-
-        // ON NE PEUT PAS UTILISER DE .push
-        this.setState({
-            budget: tmp,
-            outflow: ""
-        })
-
-
-        /* Imaginons exemple:
-        budget: []
-        Une valeur dans le champ "422"
-        Je veux cette valeur 422 dans le tableau
-
-        ON PEUT PAS FAIRE DE .push, donc copie de tableau
-        tmp = this.state.budget.concat(this.state.outflow)
-        tmp = [] + "422"
-        tmp = ["422"]
-
-        this.setState({budget: tmp})
-        Maintenant budget: ["422"]
-        
-        --- 
-        Nouvelle valeur: 289
-        budget: ["422"]
-
-        tmp = ["422"] + "289"
-        tmp = ["422", "289"]
-
-        Grâce au setState, nouvelle valeur budget = ["422","289"]
-        */
-    }
-
-    render() {
-        return(
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" 
-                    value={this.state.outflow}
-                    onChange={this.handleChangeOutFlow}
-                />
-                <input type="submit" value="Envoyer" />
-            </form>
-        )
-    }
-}
-
-
-ReactDOM.render(<App/>, document.getElementById('app'));
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <script src="app.js" type="text/babel"></script>
+</body>
+</html>
